@@ -3,7 +3,7 @@
 // 目的：讓從名片、社群、搜尋、轉介來的人快速確認「是這個人」，並找到正確的那條線。
 import Base from '../layouts/Base.astro';
 import OfficialChannels from '../components/OfficialChannels.astro';
-import { SITE_NAME, SITE_URL, SITE_DESCRIPTION, GROW_URL, EMAIL, PERSON } from '../consts';
+import { SITE_NAME, SITE_URL, SITE_DESCRIPTION, GROW_URL, DEV_URL, EMAIL, PERSON } from '../consts';
 
 const abs = (p: string) => new URL(p, SITE_URL).href;
 const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent('軟體合作洽詢')}`;
@@ -67,8 +67,8 @@ const websiteSchema = {
       <div class="card">
         <div class="num">02</div>
         <h3>軟體開發與技術顧問</h3>
-        <p>網站與前端、自動化與資料處理、技術顧問。專屬頁面籌備中，目前直接用 Email 談需求。</p>
-        <p style="margin-top:14px;"><a class="btn btn-ghost" href={mailto}>寫信談軟體需求 →</a></p>
+        <p>網站與前端、自動化與資料處理、技術顧問。能做什麼、怎麼合作、怎麼聯絡都在這裡。</p>
+        <p style="margin-top:14px;"><a class="btn btn-ghost" href={`${DEV_URL}/`}>dev.tedshen.link →</a></p>
       </div>
     </div>
   </section>

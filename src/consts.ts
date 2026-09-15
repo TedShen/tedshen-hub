@@ -8,6 +8,7 @@ export const SITE_DESCRIPTION =
 
 // 各條線的站
 export const GROW_URL = 'https://grow.tedshen.link';
+export const DEV_URL = 'https://dev.tedshen.link';
 
 // 官方聯絡管道
 export const LINE_URL = 'https://lin.ee/TWsPv3R';
@@ -21,5 +22,5 @@ export const PERSON = {
   alternateName: 'Ted Shen',
   jobTitle: '軟體工程師・財務教練',
   image: '/avatar.jpg',
-  sameAs: [GROW_URL, THREADS_URL, INSTAGRAM_URL, LINE_URL],
+  sameAs: [GROW_URL, DEV_URL, THREADS_URL, INSTAGRAM_URL, LINE_URL],
 };

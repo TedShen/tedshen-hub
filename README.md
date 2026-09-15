@@ -3,7 +3,7 @@
 沈裕德 Ted 的官方身分頁。一頁式：我是誰、各條線的入口、官方管道與防冒用聲明。
 
 - 財務教練：<https://grow.tedshen.link>（另一個 repo：`TedShen/grow`）
-- 軟體開發：籌備中，之後是 `dev.tedshen.link`
+- 軟體開發：<https://dev.tedshen.link>（`TedShen/tedshen-dev`）
 
 ## 技術
 
