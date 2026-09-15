@@ -29,7 +29,7 @@ export const CHANNELS = {
     line: 'https://lin.ee/SIX75CN',
   },
   dev: {
-    line: '', // 軟體線的 LINE 官方帳號，開好後填 lin.ee 連結
+    line: 'https://lin.ee/XB3OxbQ',
   },
 };
 
