@@ -1,0 +1,92 @@
+---
+// tedshen.link 首頁：一頁式身分頁。
+// 目的：讓從名片、社群、搜尋、轉介來的人快速確認「是這個人」，並找到正確的那條線。
+import Base from '../layouts/Base.astro';
+import OfficialChannels from '../components/OfficialChannels.astro';
+import { SITE_NAME, SITE_URL, SITE_DESCRIPTION, GROW_URL, EMAIL, PERSON } from '../consts';
+
+const abs = (p: string) => new URL(p, SITE_URL).href;
+const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent('軟體合作洽詢')}`;
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': abs('/#person'),
+  name: PERSON.name,
+  alternateName: PERSON.alternateName,
+  jobTitle: PERSON.jobTitle,
+  description: SITE_DESCRIPTION,
+  image: abs(PERSON.image),
+  url: SITE_URL,
+  email: EMAIL,
+  knowsAbout: ['軟體開發', '網站與前端', '自動化與資料處理', '財務規劃', '資產活化'],
+  sameAs: PERSON.sameAs,
+};
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': abs('/#website'),
+  name: SITE_NAME,
+  url: SITE_URL,
+  description: SITE_DESCRIPTION,
+  inLanguage: 'zh-Hant',
+  about: { '@id': abs('/#person') },
+};
+---
+
+<Base
+  title="沈裕德 Ted ｜ 軟體工程師・財務教練"
+  description={SITE_DESCRIPTION}
+  ogTitle="沈裕德 Ted"
+  ogDescription="軟體工程師，也是財務教練。官方身分頁與聯絡管道。"
+  path="/"
+  schema={[personSchema, websiteSchema]}
+>
+  <!-- ① Hero：我是誰 -->
+  <header class="hero wrap">
+    <img class="avatar" src="/avatar.jpg" alt={`${PERSON.name} ${PERSON.alternateName}`} width="96" height="96" />
+    <p class="brand-tag">TEDSHEN.LINK</p>
+    <h1>沈裕德 Ted</h1>
+    <p class="lead">
+      軟體工程師，也是財務教練。<br />
+      這一頁是我的官方身分頁：我在做什麼、每件事的入口在哪裡、怎麼確認是我本人。
+    </p>
+  </header>
+
+  <!-- ② 三條線 -->
+  <section class="wrap">
+    <p class="zone-label">我在做的事</p>
+    <h2>兩條線，各有各的入口</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>財務教練</h3>
+        <p>不推銷，先陪你把資產活化、投資理財與整體財務看清楚，再決定下一步。文章、服務說明和諮詢預約都在這裡。</p>
+        <p style="margin-top:14px;"><a class="btn btn-ghost" href={`${GROW_URL}/`}>grow.tedshen.link →</a></p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>軟體開發與技術顧問</h3>
+        <p>網站與前端、自動化與資料處理、技術顧問。專屬頁面籌備中，目前直接用 Email 談需求。</p>
+        <p style="margin-top:14px;"><a class="btn btn-ghost" href={mailto}>寫信談軟體需求 →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ③ 背景一段 -->
+  <section class="wrap">
+    <p class="zone-label">為什麼兩件事一起做</p>
+    <h2>同一個人，同一種做事方式</h2>
+    <p class="zone-intro">
+      我從軟體工程師走到財務教練，中間沒有換腦袋。寫程式教我的是先把問題定義清楚、再動手；
+      做財務規劃也是一樣，先把整體看清楚，再決定要不要做、怎麼做。
+    </p>
+    <p class="zone-intro">
+      兩邊我都不推銷。這一頁的目的只有一個：讓你確定找對人，然後走到對的入口。
+      完整的故事在 <a href={`${GROW_URL}/blog/why-engineer-to-coach/`} style="color:var(--brand);font-weight:600;">這篇文章</a>。
+    </p>
+  </section>
+
+  <!-- ④ 官方管道與防冒用聲明 -->
+  <OfficialChannels />
+</Base>
