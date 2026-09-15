@@ -4,6 +4,7 @@
 
 - 財務教練：<https://grow.tedshen.link>（另一個 repo：`TedShen/grow`）
 - 軟體開發：<https://dev.tedshen.link>（`TedShen/tedshen-dev`）
+- 保險服務：<https://protect.tedshen.link>（`TedShen/tedshen-protect`）
 
 ## 技術
 

@@ -2,7 +2,7 @@
 // 官方管道總表（身分頁版）。
 // 這裡是所有官方帳號的正本，分線列出。各線的站只列自己那組，並指回這裡。
 // 帳號值都在 consts.ts，這個檔案不寫死任何網址。
-import { CHANNELS, EMAIL, GROW_URL, DEV_URL } from '../consts';
+import { CHANNELS, EMAIL, GROW_URL, DEV_URL, PROTECT_URL } from '../consts';
 const host = (u: string) => u.replace('https://', '');
 ---
 
@@ -28,6 +28,7 @@ const host = (u: string) => u.replace('https://', '');
   <div class="channel-group">
     <h3>保險服務</h3>
     <ul class="channel-list">
+      <li><span>網站</span><a href={PROTECT_URL}>{host(PROTECT_URL)}</a></li>
       <li><span>Threads</span><a href={CHANNELS.protect.threads} rel="me">{CHANNELS.protect.handle}</a></li>
       <li><span>Instagram</span><a href={CHANNELS.protect.instagram} rel="me">{CHANNELS.protect.handle}</a></li>
       <li><span>LINE 官方帳號</span><a href={CHANNELS.protect.line}>加入好友</a></li>
