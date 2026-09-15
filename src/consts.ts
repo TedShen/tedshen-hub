@@ -11,6 +11,11 @@ export const GROW_URL = 'https://grow.tedshen.link';
 export const DEV_URL = 'https://dev.tedshen.link';
 // 保險站 protect.tedshen.link 還在審閱，公開後再加進這裡和 OfficialChannels
 
+// 履歷與開發者帳號（Person.sameAs 用，幫 Google 把這些身分合併成同一個人）
+export const RESUME_URL = 'https://tedshen.github.io/';
+export const GITHUB_URL = 'https://github.com/TedShen';
+export const LINKEDIN_URL = 'https://www.linkedin.com/in/ted-shen/';
+
 // 共用聯絡
 export const EMAIL = 'ted@tedshen.link';
 
@@ -42,6 +47,9 @@ export const PERSON = {
   sameAs: [
     GROW_URL,
     DEV_URL,
+    RESUME_URL,
+    GITHUB_URL,
+    LINKEDIN_URL,
     CHANNELS.grow.threads,
     CHANNELS.grow.instagram,
     CHANNELS.grow.line,
