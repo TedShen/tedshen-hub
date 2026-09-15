@@ -6,7 +6,6 @@ import OfficialChannels from '../components/OfficialChannels.astro';
 import { SITE_NAME, SITE_URL, SITE_DESCRIPTION, GROW_URL, DEV_URL, EMAIL, PERSON } from '../consts';
 
 const abs = (p: string) => new URL(p, SITE_URL).href;
-const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent('軟體合作洽詢')}`;
 
 const personSchema = {
   '@context': 'https://schema.org',
