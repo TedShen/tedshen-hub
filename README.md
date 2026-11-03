@@ -9,7 +9,9 @@
 ## 技術
 
 Astro 靜態站，GitHub Actions 部署到 GitHub Pages，DNS 在 Cloudflare。
-版型（`src/layouts/Base.astro`）和官方管道元件是從 grow 複製後微調，樣式一致。
+版型（`src/layouts/Base.astro`）是 2026-11-03 改版後的「雜誌封面＋目錄」風格：只做淺色、明體大標、三條線各一個顏色（軟體紅 `--dev`、財務綠 `--grow`、保險藍 `--protect`）。三站從這次起各自有不同風格（dev 深色儀器風、protect 淺色專業風），不再要求樣式一致；各站之間共用的只有官方管道資料與連結方向。
+
+照片放在 `public/img/`，來自 Unsplash（Unsplash License，可免費商用）：封面 Tangchi Lee、頁尾 Timo Volz，頁面上已標註。
 
 ## 常用指令
 

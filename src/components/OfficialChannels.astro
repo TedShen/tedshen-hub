@@ -69,26 +69,31 @@ const host = (u: string) => u.replace('https://', '');
 </section>
 
 <style>
-  .channels-intro { margin-bottom: 24px; }
-  .channel-group { margin-bottom: 24px; }
-  .channel-group h3 { font-size: .95rem; color: var(--brand); letter-spacing: .05em; margin-bottom: 10px; }
-  .channel-list { list-style: none; display: grid; gap: 10px; }
-  .channel-list li {
-    display: flex; align-items: baseline; gap: 12px; padding: 12px 18px;
-    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
-    font-size: .96rem; flex-wrap: wrap;
-  }
-  .channel-list span { color: var(--muted); font-size: .85rem; min-width: 104px; }
-  .channel-list a { color: var(--brand); text-decoration: none; font-weight: 600; word-break: break-all; }
+  .channels { padding-top: 100px; padding-bottom: 100px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 24px; }
+  .channels > .zone-label, .channels > h2, .channels > .channels-intro, .channels > .never-box { grid-column: 1 / -1; }
+  .zone-label { font-family: var(--f-italic); font-style: italic; color: var(--dev); font-size: 1.1rem; }
+  .channels > h2 { font-family: var(--f-display); font-weight: 900; font-size: clamp(1.8rem, 3vw, 2.5rem); margin-top: 4px; }
+  .channels-intro { color: var(--muted); margin: 10px 0 24px; max-width: 40rem; padding-bottom: 18px; border-bottom: 2px solid var(--ink); }
+  .channel-group { min-width: 0; padding-top: 6px; }
+  .channel-group h3 { font-size: 1rem; letter-spacing: .12em; margin-bottom: 10px; color: var(--ink); }
+  .channel-group:nth-of-type(1) h3 { color: var(--grow); }
+  .channel-group:nth-of-type(2) h3 { color: var(--protect); }
+  .channel-group:nth-of-type(3) h3 { color: var(--dev); }
+  .channel-list { list-style: none; display: grid; gap: 0; }
+  .channel-list li { display: flex; justify-content: space-between; gap: 10px; padding: 9px 0; border-bottom: 1px dotted var(--rule); font-size: .92rem; flex-wrap: wrap; }
+  .channel-list span { color: var(--muted); }
+  .channel-list a { color: var(--ink); font-weight: 600; text-decoration: none; word-break: break-all; }
   .channel-list a:hover { text-decoration: underline; }
-  .never-box {
-    margin-top: 32px;
-    background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--brand);
-    border-radius: 12px; padding: 24px;
+  .never-box { margin-top: 44px; display: grid; grid-template-columns: minmax(0, .6fr) minmax(0, 1.4fr); gap: 12px 28px; background: var(--ink); color: var(--paper); padding: 36px; }
+  .never-box h3 { font-family: var(--f-display); font-size: 1.6rem; grid-row: span 2; }
+  .never-box ul { list-style: none; display: grid; gap: 8px; }
+  .never-box li { padding-left: 22px; position: relative; }
+  .never-box li::before { content: "×"; position: absolute; left: 0; color: #F08A70; font-weight: 700; }
+  .never-note { font-weight: 600; line-height: 1.7; color: var(--paper); }
+  @media (max-width: 860px) {
+    .channels { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 24px; }
+    .never-box { grid-template-columns: minmax(0, 1fr); padding: 28px 22px; }
+    .never-box h3 { grid-row: auto; }
   }
-  .never-box h3 { font-size: 1.05rem; margin-bottom: 14px; }
-  .never-box ul { list-style: none; display: grid; gap: 8px; margin-bottom: 18px; }
-  .never-box li { color: var(--muted); font-size: .95rem; padding-left: 22px; position: relative; }
-  .never-box li::before { content: "×"; position: absolute; left: 0; color: var(--brand); font-weight: 700; }
-  .never-note { font-size: .95rem; color: var(--text); font-weight: 600; line-height: 1.7; }
+  @media (max-width: 560px) { .channels { grid-template-columns: minmax(0, 1fr); } }
 </style>

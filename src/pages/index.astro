@@ -41,57 +41,100 @@ const websiteSchema = {
   path="/"
   schema={[personSchema, websiteSchema]}
 >
-  <!-- ① Hero：我是誰 -->
-  <header class="hero wrap">
-    <img class="avatar" src="/avatar.jpg" alt={`${PERSON.name} ${PERSON.alternateName}`} width="96" height="96" />
-    <p class="brand-tag">TEDSHEN.LINK</p>
-    <h1>沈裕德 Ted</h1>
-    <p class="lead">
-      軟體工程師，也是財務教練。<br />
-      官方身分頁：我在做什麼、從這裡開始。
-    </p>
+  <!-- ① 封面：我是誰 -->
+  <header class="cover">
+    <img class="cover-img" src="/img/taipei-dusk.webp" alt="黃昏時從山上看台北市與台北 101" width="2000" height="1334" fetchpriority="high" />
+    <div class="masthead"><b>TEDSHEN.LINK</b><span>官方身分頁</span></div>
+    <div class="wrap cover-in">
+      <div>
+        <p class="kicker">Software · Finance · Protection</p>
+        <h1>沈裕德<span>Ted</span></h1>
+        <p class="lead">軟體工程師，也是財務教練。<br />官方身分頁：我在做什麼、從這裡開始。</p>
+      </div>
+      <div class="portrait"><img src={PERSON.image} alt={`${PERSON.name} ${PERSON.alternateName}`} width="400" height="589" /></div>
+    </div>
+    <span class="credit">攝影：Tangchi Lee／Unsplash</span>
   </header>
 
-  <!-- ② 三條線 -->
-  <section class="wrap">
-    <p class="zone-label">我在做的事</p>
-    <h2>三條線，各有各的入口</h2>
-    <div class="cards">
-      <div class="card">
-        <div class="num">01</div>
-        <h3>財務教練</h3>
-        <p>不推銷，先陪你把資產活化、投資理財與整體財務看清楚，再決定下一步。文章、服務說明和諮詢預約都在這裡。</p>
-        <p style="margin-top:14px;"><a class="btn btn-ghost" href={`${GROW_URL}/`}>grow.tedshen.link →</a></p>
-      </div>
-      <div class="card">
-        <div class="num">02</div>
-        <h3>軟體開發與技術顧問</h3>
-        <p>軟體開發、機器視覺、工業自動化、系統串接、網站，技術顧問。能做什麼、怎麼合作、怎麼聯絡都在這裡。</p>
-        <p style="margin-top:14px;"><a class="btn btn-ghost" href={`${DEV_URL}/`}>dev.tedshen.link →</a></p>
-      </div>
-      <div class="card">
-        <div class="num">03</div>
-        <h3>保險服務</h3>
-        <p>以登錄保險業務員的身分，先看缺口、再談保障，不多買、不亂買。登錄資料和正式聯絡管道都在那裡。</p>
-        <p style="margin-top:14px;"><a class="btn btn-ghost" href={`${PROTECT_URL}/`}>protect.tedshen.link →</a></p>
-      </div>
+  <!-- ② 目錄：三條線 -->
+  <section class="wrap contents" aria-labelledby="lines">
+    <div class="contents-head"><h2 id="lines" class="h-display">三條線，各有各的入口</h2><p class="label-italic">Contents</p></div>
+    <div class="contents-list">
+      <a class="line" href={`${DEV_URL}/`} style="--c:var(--dev)"><span class="num">01</span><h3>軟體開發與技術顧問<small>Software</small></h3><p>軟體開發、機器視覺、工業自動化、系統串接、網站，技術顧問。能做什麼、怎麼合作、怎麼聯絡都在這裡。</p><span class="url">dev.tedshen.link →</span></a>
+      <a class="line" href={`${GROW_URL}/`} style="--c:var(--grow)"><span class="num">02</span><h3>財務教練<small>Finance</small></h3><p>不推銷，先陪你把資產活化、投資理財與整體財務看清楚，再決定下一步。文章、服務說明和諮詢預約都在這裡。</p><span class="url">grow.tedshen.link →</span></a>
+      <a class="line" href={`${PROTECT_URL}/`} style="--c:var(--protect)"><span class="num">03</span><h3>保險服務<small>Protection</small></h3><p>以登錄保險業務員的身分，先看缺口、再談保障，不多買、不亂買。登錄資料和正式聯絡管道都在那裡。</p><span class="url">protect.tedshen.link →</span></a>
     </div>
   </section>
 
   <!-- ③ 背景一段 -->
-  <section class="wrap">
-    <p class="zone-label">為什麼這些事一起做</p>
-    <h2>同一個人，同一種做事方式</h2>
-    <p class="zone-intro">
-      我做了十年以上的軟體工程師，機器視覺、工業自動化、資安軟體，後來走到財務教練，中間沒有換腦袋。寫程式教我的是先把問題定義清楚、再動手；
-      做財務規劃也是一樣，先把整體看清楚，再決定要不要做、怎麼做。
-    </p>
-    <p class="zone-intro">
-      兩邊我都不推銷。這一頁的目的只有一個：讓你確定找對人，然後走到對的入口。
-      完整的故事在 <a href={`${GROW_URL}/blog/why-engineer-to-coach/`} style="color:var(--brand);font-weight:600;">這篇文章</a>。
-    </p>
+  <section class="essay">
+    <div class="wrap essay-in">
+      <div><span class="essay-label">為什麼這些事一起做</span><h2 class="h-display">同一個人，<br />同一種做事方式</h2></div>
+      <div class="essay-body">
+        <p>我做了 15 年的軟體工程師，機器視覺、工業自動化、資安軟體，後來走到財務教練，中間沒有換腦袋。寫程式教我的是先把問題定義清楚、再動手；做財務規劃也是一樣，先把整體看清楚，再決定要不要做、怎麼做。</p>
+        <p>兩邊我都不推銷。這一頁的目的只有一個：讓你確定找對人，然後走到對的入口。完整的故事在 <a href={`${GROW_URL}/blog/why-engineer-to-coach/`}>這篇文章</a>。</p>
+      </div>
+    </div>
   </section>
 
   <!-- ④ 官方管道與防冒用聲明 -->
   <OfficialChannels />
 </Base>
+
+<style>
+  .cover { position: relative; min-height: min(94svh, 900px); display: grid; align-items: end; color: #FBF8F2; overflow: hidden; background: #3a2f3a; }
+  .cover-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; max-width: none; transform-origin: 50% 60%; }
+  .cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,14,18,.38) 0%, rgba(20,14,18,0) 30%, rgba(20,14,18,.15) 55%, rgba(20,14,18,.8) 100%); }
+  .masthead { position: absolute; inset: 0 0 auto; z-index: 2; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-top: calc(env(safe-area-inset-top, 0px) + 22px); padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); font-size: .8rem; letter-spacing: .24em; }
+  .cover-in { position: relative; z-index: 2; padding-bottom: 56px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 28px; align-items: end; }
+  .kicker { font-family: var(--f-italic); font-style: italic; font-size: 1.35rem; opacity: .9; }
+  .cover h1 { font-family: var(--f-display); font-weight: 900; font-size: clamp(4.2rem, 15vw, 12rem); line-height: .95; letter-spacing: .04em; margin-top: 6px; }
+  .cover h1 span { font-family: var(--f-italic); font-style: italic; font-weight: 400; font-size: .32em; letter-spacing: 0; margin-left: .2em; vertical-align: .9em; }
+  .cover .lead { font-size: 1.1rem; max-width: 30rem; margin-top: 14px; opacity: .92; }
+  .portrait { width: 132px; aspect-ratio: 3 / 4; max-width: 100%; border: 4px solid #FBF8F2; box-shadow: 0 18px 40px rgba(0,0,0,.35); transform: rotate(2.5deg); overflow: hidden; }
+  .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
+  .credit { position: absolute; right: max(20px, env(safe-area-inset-right, 0px)); bottom: 14px; z-index: 2; font-size: .68rem; opacity: .7; }
+
+  .contents { padding-top: 100px; padding-bottom: 80px; }
+  .contents-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; border-bottom: 2px solid var(--ink); padding-bottom: 14px; }
+  .contents-list { position: relative; z-index: 0; }
+  .line { display: grid; grid-template-columns: 110px minmax(0, 1fr) minmax(0, 1.1fr) auto; gap: 28px; align-items: center; padding: 34px 0; border-bottom: 1px solid var(--rule); text-decoration: none; position: relative; transition: padding .35s ease, color .35s ease; }
+  .line::before { content: ""; position: absolute; inset: 0; background: var(--c); transform: scaleY(0); transform-origin: bottom; transition: transform .45s cubic-bezier(.2,.7,.2,1); z-index: -1; }
+  .line:hover, .line:focus-visible { color: #FBF8F2; padding-left: 24px; padding-right: 24px; }
+  .line:hover::before, .line:focus-visible::before { transform: scaleY(1); }
+  .line:hover .num, .line:hover .url, .line:hover p { color: #FBF8F2; }
+  .num { font-family: var(--f-display); font-weight: 900; font-size: 4.2rem; line-height: 1; color: var(--c); }
+  .line h3 { font-family: var(--f-display); font-weight: 900; font-size: clamp(1.5rem, 2.6vw, 2.2rem); line-height: 1.3; }
+  .line h3 small { display: block; font-family: var(--f-italic); font-style: italic; font-weight: 400; font-size: 1rem; opacity: .75; margin-top: 4px; }
+  .line p { color: var(--muted); font-size: .98rem; }
+  .url { font-size: .9rem; color: var(--c); font-weight: 700; white-space: nowrap; }
+
+  .essay { background: var(--paper-2); padding: 100px 0; }
+  .essay-in { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 56px; }
+  .essay-label { display: block; font-family: var(--f-italic); font-style: italic; color: var(--dev); font-size: 1.1rem; margin-bottom: 12px; }
+  .essay-body { display: grid; gap: 22px; font-size: 1.08rem; max-width: 36rem; }
+  .essay-body p:first-child::first-letter { font-family: var(--f-display); font-weight: 900; float: left; font-size: 3.6em; line-height: .9; margin: .06em .12em 0 0; color: var(--dev); }
+  .essay-body a { color: var(--dev); font-weight: 700; }
+
+  @media (max-width: 860px) {
+    .line { grid-template-columns: 70px minmax(0, 1fr); gap: 8px 18px; }
+    .line p, .line .url { grid-column: 2; }
+    .num { font-size: 3rem; }
+    .essay-in { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  }
+  @media (max-width: 560px) {
+    .cover-in { grid-template-columns: minmax(0, 1fr); }
+    .portrait { width: 96px; order: -1; }
+    .masthead span { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { .line, .line::before { transition: none; } }
+</style>
+
+<script>
+  // 封面照片隨捲動慢慢推近（減少動態效果時不做）
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const img = document.querySelector<HTMLImageElement>('.cover-img');
+    const on = () => { if (!img) return; const y = Math.min(scrollY, innerHeight); img.style.transform = `translateY(${y * 0.25}px) scale(${1.04 + (y / innerHeight) * 0.06})`; };
+    addEventListener('scroll', on, { passive: true }); on();
+  }
+</script>
