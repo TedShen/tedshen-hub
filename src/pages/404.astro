@@ -1,0 +1,23 @@
+---
+// 404：Cloudflare Pages 找不到網址時回傳這頁（HTTP 404）。沒有這頁的話，Pages 會把首頁當成所有網址的內容（soft 404）。
+import Base from '../layouts/Base.astro';
+import { GROW_URL, DEV_URL, PROTECT_URL } from '../consts';
+---
+
+<Base
+  title="找不到這一頁 ｜ 沈裕德 Ted"
+  description="你要找的頁面不存在。回到身分頁，或直接前往軟體開發、財務教練、保險服務。"
+  path="/404/"
+>
+  <main class="wrap" style="padding-top:96px; padding-bottom:96px; text-align:center;">
+    <p style="letter-spacing:.2em; font-size:.85rem;">404</p>
+    <h1 style="margin:8px 0 16px;">找不到這一頁</h1>
+    <p style="margin:0 0 32px;">網址可能打錯了。從下面挑一條線繼續：</p>
+    <p style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
+      <a href="/">回身分頁 →</a>
+      <a href={DEV_URL}>軟體開發 →</a>
+      <a href={GROW_URL}>財務教練 →</a>
+      <a href={PROTECT_URL}>保險服務 →</a>
+    </p>
+  </main>
+</Base>

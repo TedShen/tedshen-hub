@@ -25,3 +25,7 @@ npm run build    # 產出到 dist/
 
 - 社群帳號、Email、LINE 連結在 `src/consts.ts`，和 grow 的 `src/consts.ts` 要保持一致。
 - `PERSON` 是 JSON-LD Person 的正本，`@id` 是 `https://tedshen.link/#person`。
+
+## 作業紀錄（新的加在最上面）
+
+- 2026-11-12：準備搬到 Cloudflare Pages。新增 `.node-version`（22）與 `src/pages/404.astro`（Cloudflare Pages 沒有 404.html 時，任何網址都會回首頁內容，等於 soft 404）。部署尚未切換，GitHub Pages 照常。
